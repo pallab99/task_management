@@ -5,8 +5,7 @@ export const RESPONSE_MESSAGE = {
   EMAIL_EXISTS: "Email already exists",
   EMAIL_NOT_EXISTS: "Email do not exits",
   PASSWORD_NOT_MATCH: "Password and confirm password should be same",
-  REGISTRATION_SUCCESSFUL:
-    "Registration successful.Please check your email for further instructions",
+  REGISTRATION_SUCCESSFUL: "Registration successful",
   SOMETHING_WENT_WRONG: "Something went wrong.Please try again later",
   WRONG_CREDENTIAL: "Wrong credential",
   SIGN_IN_SUCCESSFUL: "Sign In successful",

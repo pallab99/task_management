@@ -1,6 +1,6 @@
-import { RESPONSE_MESSAGE } from "../constant/responseMessage";
-import { HTTP_STATUS } from "../constant/statusCode";
-import { sendResponse } from "./response";
+import { RESPONSE_MESSAGE } from "../constant/responseMessage.js";
+import { HTTP_STATUS } from "../constant/statusCode.js";
+import { sendResponse } from "./response.js";
 
 export const sendValidationError = (res, validation) => {
   const error = {};
@@ -15,5 +15,3 @@ export const sendValidationError = (res, validation) => {
     error
   );
 };
-
-module.exports = { sendValidationError };

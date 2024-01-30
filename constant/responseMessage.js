@@ -15,4 +15,10 @@ export const RESPONSE_MESSAGE = {
   UNAUTHORIZED_ACCESS: "Unauthorized access.",
   NO_DATA: "No data found",
   SUCCESSFULLY_GET_ALL_DATA: "Successfully get the data",
+  TASK_CREATE_SUCCESS: "Task created successfully",
+  TASK_CREATE_FAILED: "Task creation failed.Please try again later",
+  TASK_UPDATE_SUCCESS: "Task updated successfully",
+  TASK_UPDATE_FAILED: "Task update failed.Please try again later",
+  TASK_DELETE_SUCCESS: "Task delete successfully",
+  TASK_DELETE_FAILED: "Task delete failed.Please try again later",
 };

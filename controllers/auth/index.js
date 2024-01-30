@@ -59,7 +59,7 @@ class AuthControllerClass {
         );
       }
 
-      const accessToken = generateAccessToken(req.body);
+      const accessToken = generateAccessToken(findByEmail.data);
       res.cookie("accessToken", accessToken, { path: "/" });
       const newUserData = {
         ...findByEmail.data,

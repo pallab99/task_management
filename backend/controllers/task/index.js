@@ -74,8 +74,8 @@ class TaskControllerClass {
         return sendValidationError(res, validation);
       }
       const user = req.user;
-
-      const findTask = await TaskService.findTask(req.params, user.id);
+      console.log("params", req.params.id);
+      const findTask = await TaskService.findTask(req.params.id, user.id);
       if (!findTask.success) {
         return sendResponse(
           res,
@@ -86,7 +86,7 @@ class TaskControllerClass {
       const updatedTask = await TaskService.updateTask(
         req.params.id,
         user.id,
-        req.body
+        req.body.data
       );
       if (!updatedTask.success) {
         return sendResponse(
@@ -119,7 +119,7 @@ class TaskControllerClass {
       }
       const user = req.user;
 
-      const findTask = await TaskService.findTask(req.params, user.id);
+      const findTask = await TaskService.findTask(req.params.id, user.id);
       if (!findTask.success) {
         return sendResponse(
           res,

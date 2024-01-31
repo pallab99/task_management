@@ -33,10 +33,11 @@ class TaskRepositoryClass {
   }
 
   async findTask(taskId, userId) {
+    console.log("findTask", taskId, userId);
     const tasks = await prisma.task.findUnique({
       where: {
         userId: userId,
-        id: taskId,
+        id: parseInt(taskId, 10),
       },
     });
 

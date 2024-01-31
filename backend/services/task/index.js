@@ -18,7 +18,7 @@ class TaskServiceClass {
   }
   async findTask(taskId, userId) {
     const newTaskId = parseInt(taskId.id, 10);
-    const result = await TaskRepository.findTask(newTaskId, userId);
+    const result = await TaskRepository.findTask(taskId, userId);
     if (result) {
       return { success: true, data: result };
     }

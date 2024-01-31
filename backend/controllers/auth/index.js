@@ -28,6 +28,7 @@ class AuthControllerClass {
         newUser.data
       );
     } catch (error) {
+      console.log(error);
       return sendResponse(
         res,
         HTTP_STATUS.INTERNAL_SERVER_ERROR,

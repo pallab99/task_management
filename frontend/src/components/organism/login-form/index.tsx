@@ -2,64 +2,42 @@
 import Button from '@/components/atoms/button';
 import Input from '@/components/atoms/input';
 import PasswordInput from '@/components/atoms/password-input';
-import UseSignUp from '@/hooks/auth/useRegister';
+import UseSignIn from '@/hooks/auth/useLogin';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-const SignupForm = () => {
+const LoginForm = () => {
   const {
-    register,
     control,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signUpMutation } = UseSignUp();
+  const { signInMutation } = UseSignIn();
 
   const onSubmit = async (data: unknown) => {
-    console.log('signup form data', data);
-    signUpMutation.mutate(data);
+    signInMutation.mutate(data);
   };
   const router = useRouter();
 
   useEffect(() => {
-    if (signUpMutation.isSuccess && !signUpMutation.isPending) {
-      router.push('/login');
+    if (signInMutation.isSuccess && !signInMutation.isPending) {
+      router.push('/');
     }
-  }, [router, signUpMutation]);
+  }, [router, signInMutation]);
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div className="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 ">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
-            Register your account
+            Log in to your account
           </h1>
           <form
             className="space-y-4 md:space-y-6"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <Controller
-              name="username"
-              control={control}
-              rules={{ required: 'Username is required' }}
-              render={({ field }) => (
-                <Input
-                  fieldValues={field}
-                  name="userName"
-                  id="userName"
-                  placeholder="Enter Your UserName"
-                  label="UserName"
-                  type="text"
-                />
-              )}
-            />
-
-            {errors.username && (
-              <p className="text-red-500">{errors.username.message}</p>
-            )}
-
             <Controller
               name="email"
               control={control}
@@ -107,11 +85,11 @@ const SignupForm = () => {
               <p className="text-red-500">{errors.password.message}</p>
             )}
 
-            <Button text="Sign Up" type="submit" />
+            <Button text="Log In" type="submit" />
             <p className="text-sm font-light text-gray-500 ">
-              Already Have Account
+              Register Now
               <Link
-                href="/login"
+                href="/register"
                 className="font-medium text-primary-600 hover:underline "
               >
                 Sign up
@@ -124,4 +102,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default LoginForm;
